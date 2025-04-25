@@ -1,0 +1,29 @@
+1. Управление пользователями
+sudo useradd -m newuser
+/etc/shadow
+/etc/group
+cat /etc/passwd | grep newuser
+sudo cat /etc/shadow | grep newuser
+cat /etc/group | grep newuser
+sudo userdel -r newuser
+
+2. Управление группами
+
+sudo groupadd newgroup
+sudo usermod -g newgroup newuser
+sudo usermod -aG newgroup newuser
+sudo nano /etc/group
+
+3. Создание пользователя с правами суперпользователя
+
+sudo useradd -m sudo_user
+sudo passwd sudo_user
+sudo usermod -aG sudo sudo_user
+su sudo_user
+sudo whoami
+
+4. Выдача прав пользователю на выполнение определённых команд
+
+sudo visudo
+newuser ALL=(ALL) NOPASSWD: /usr/sbin/reboot, /usr/sbin/nano /etc/ssh/sshd_config
+sudo reboot

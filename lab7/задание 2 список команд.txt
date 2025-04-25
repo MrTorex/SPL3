@@ -1,0 +1,29 @@
+1. Потоки ввода/вывода
+
+echo "text" > file.txt
+cat /etc/* > output.txt 2> errors.txt
+
+2. Конвейрер (pipeline)
+
+ls -l | cut -d ' ' -f 1
+ls -l | cut -d ' ' -f 1 | sort | uniq
+
+3. Управление процессами
+
+1 Изменение конфигурации службы SSH
+
+sudo nano /etc/ssh/sshd_config
+PasswordAuthentication no
+sudo systemctl restart ssh
+sudo systemctl reload ssh
+
+2 Создание файла с текстом через cat
+
+cat > newfile.txt
+
+4. Сигналы процессам
+
+sudo apt install mc
+mc
+ps aux | grep mc
+sudo kill -9 PID
